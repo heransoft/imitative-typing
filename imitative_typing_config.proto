@@ -1,0 +1,37 @@
+syntax = "proto2";
+
+package imitative_typing;
+
+message FileExtension2AnnotationSymbol {
+    optional string FileExtension = 1;
+    optional string AnnotationSymbol = 2;
+}
+
+message ImitativeTypingConfig {
+    repeated FileExtension2AnnotationSymbol FileExtension2AnnotationSymbol = 1;
+    optional string JavaScriptStartSymbol = 2;
+    optional string JavaScriptEndSymbol = 3;
+    optional string PreprocessorMacroForCurrentLine = 4;
+    optional string PreprocessorMacroForCurrentStartLine = 5;
+    optional string PreprocessorMacroForCurrentEndLine = 6;
+    optional string PreprocessorMacroForCurrentFileEndLine = 7;
+    optional string JavaScriptTableNameForDirectory = 8;
+    optional string JavaScriptFunctionNameForDirectoryInsert = 9;
+    optional string JavaScriptFunctionNameForDirectoryDelete = 10;
+    optional string JavaScriptFunctionNameForDirectorySelect = 11;
+    optional string JavaScriptFunctionNameForDirectoryUpdate = 12;
+    optional string JavaScriptTableNameForFile = 13;
+    optional string JavaScriptFunctionNameForFileInsert = 14;
+    optional string JavaScriptFunctionNameForFileDelete = 15;
+    optional string JavaScriptFunctionNameForFileSelect = 16;
+    optional string JavaScriptFunctionNameForFileUpdate = 17;
+    optional string JavaScriptFunctionNameForFileOrigin = 18;
+    optional string JavaScriptTableNameForLine = 19;
+    optional string JavaScriptFunctionNameForLineInsert = 20;
+    optional string JavaScriptFunctionNameForLineDelete = 21;
+    optional string JavaScriptFunctionNameForLineSelect = 22;
+    optional string JavaScriptFunctionNameForLineUpdate = 23;
+    optional string JavaScriptFunctionNameForLineOrigin = 24;
+    optional string JavaScriptTableNameForGlobal = 25;
+
+}

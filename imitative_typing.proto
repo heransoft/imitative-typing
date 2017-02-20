@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package imitative_typing;
+
+message File {
+    repeated string AllLine = 1;
+    optional string Name = 2;
+}
+
+message JavaScriptLines {
+    repeated string Lines = 1;
+    optional uint32 BaseLineNumber = 2;
+}
