@@ -15,19 +15,5 @@ func init() {
 		JavaScript:         make(map[string]string),
 	}
 	javaScriptContext = NewJavaScriptContext()
-
-	RegisterDirectoryInsert()
-	RegisterDirectoryDelete()
-	RegisterDirectorySelect()
-	RegisterDirectoryUpdate()
-	RegisterFileInsert()
-	RegisterFileDelete()
-	RegisterFileSelect()
-	RegisterFileUpdate()
-	RegisterFileOrigin()
-	RegisterLineInsert()
-	RegisterLineDelete()
-	RegisterLineSelect()
-	RegisterLineUpdate()
-	RegisterLineOrigin()
+	RegisterFunctions()
 }

@@ -7,7 +7,9 @@ import (
 )
 
 func RegisterFileDelete() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForFile()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForFileDelete(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForFile(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForFileDelete()),
 		func(duktapeContext *duktape.Context) int {
 			file := duktapeContext.RequireString(0)
 			if FileOrigin(file) {

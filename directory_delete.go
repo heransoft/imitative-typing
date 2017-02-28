@@ -1,11 +1,14 @@
 package imitative_typing
 
 import (
+	"fmt"
 	"gopkg.in/olebedev/go-duktape.v2"
 )
 
 func RegisterDirectoryDelete() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForDirectory()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryDelete(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForDirectory(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryDelete()),
 		func(duktapeContext *duktape.Context) int {
 			if duktapeContext.GetTop() > 0 {
 				rootPath := duktapeContext.RequireString(0)

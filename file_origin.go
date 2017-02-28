@@ -1,12 +1,15 @@
 package imitative_typing
 
 import (
+	"fmt"
 	"gopkg.in/olebedev/go-duktape.v2"
 	"strings"
 )
 
 func RegisterFileOrigin() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForFile()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForFileOrigin(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForFile(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForFileOrigin()),
 		func(duktapeContext *duktape.Context) int {
 			filename := duktapeContext.RequireString(0)
 			duktapeContext.PushBoolean(FileOrigin(filename))

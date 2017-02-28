@@ -5,10 +5,13 @@ import (
 	"gopkg.in/olebedev/go-duktape.v2"
 	"os"
 	"path/filepath"
+	"regexp"
 )
 
 func RegisterDirectoryInsert() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForDirectory()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryInsert(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForDirectory(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryInsert()),
 		DirectoryInsert)
 }
 
@@ -18,11 +21,18 @@ func DirectoryInsert(duktapeContext *duktape.Context) int {
 		FileIndex2FileName: make(map[uint32]string),
 		FileName2FileIndex: make(map[string]uint32),
 	}
+	reg := regexp.MustCompile(".*")
+	if duktapeContext.GetTop() > 1 {
+		reg = regexp.MustCompile(duktapeContext.RequireString(1))
+	}
 	err := filepath.Walk(rootPath, func(path string, f os.FileInfo, err error) error {
 		if f == nil {
 			return err
 		}
 		if f.IsDir() {
+			return nil
+		}
+		if reg.MatchString(path) == false {
 			return nil
 		}
 		{

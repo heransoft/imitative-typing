@@ -1,6 +1,6 @@
 package imitative_typing
 
-func GetID2JavaScript(file *File) (id2JavaScript map[string]string) {
+func GetID2JavaScript(file *File) (id2JavaScript map[string]string, id2Order map[string]int32) {
 	id2JavaScript = make(map[string]string)
 	id2JavaScriptLines := GetID2JavaScriptLines(file.GetName())
 	PreprocessorMacro(id2JavaScriptLines, file)
@@ -12,6 +12,7 @@ func GetID2JavaScript(file *File) (id2JavaScript map[string]string) {
 			javaScript += "\n"
 		}
 		id2JavaScript[id] = javaScript
+		id2Order[id] = javaScriptLines.GetOrder()
 	}
 	return
 }

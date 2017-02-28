@@ -48,6 +48,7 @@ func (m *File) GetName() string {
 type JavaScriptLines struct {
 	Lines            []string `protobuf:"bytes,1,rep" json:"Lines,omitempty"`
 	BaseLineNumber   *uint32  `protobuf:"varint,2,opt" json:"BaseLineNumber,omitempty"`
+	Order            *int32   `protobuf:"varint,3,opt" json:"Order,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
@@ -65,6 +66,13 @@ func (m *JavaScriptLines) GetLines() []string {
 func (m *JavaScriptLines) GetBaseLineNumber() uint32 {
 	if m != nil && m.BaseLineNumber != nil {
 		return *m.BaseLineNumber
+	}
+	return 0
+}
+
+func (m *JavaScriptLines) GetOrder() int32 {
+	if m != nil && m.Order != nil {
+		return *m.Order
 	}
 	return 0
 }

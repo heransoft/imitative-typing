@@ -1,11 +1,14 @@
 package imitative_typing
 
 import (
+	"fmt"
 	"gopkg.in/olebedev/go-duktape.v2"
 )
 
 func RegisterLineUpdate() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForLine()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForLineUpdate(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForLine(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForLineUpdate()),
 		func(duktapeContext *duktape.Context) int {
 			lineIndex := uint32(duktapeContext.RequireInt(0))
 			updateString := duktapeContext.RequireString(1)

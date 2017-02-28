@@ -6,7 +6,9 @@ import (
 )
 
 func RegisterFileUpdate() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForFile()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForFileUpdate(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForFile(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForFileUpdate()),
 		func(duktapeContext *duktape.Context) int {
 			from := duktapeContext.RequireString(0)
 			to := from

@@ -13,10 +13,12 @@ func NewJavaScriptContext() *JavaScriptContext {
 	javaScriptContext := &JavaScriptContext{
 		duktapeContext: duktape.New(),
 	}
-	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("var %s = {}", imitativeTypingConfig.GetJavaScriptTableNameForGlobal()))
-	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("var %s = {}", imitativeTypingConfig.GetJavaScriptTableNameForDirectory()))
-	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("var %s = {}", imitativeTypingConfig.GetJavaScriptTableNameForFile()))
-	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("var %s = {}", imitativeTypingConfig.GetJavaScriptTableNameForLine()))
+	javaScriptContext.duktapeContext.PevalString("var it = {}")
+	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("it.%s = {}", imitativeTypingConfig.GetJavaScriptTableNameForSystem()))
+	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("it.%s.%s = {}", imitativeTypingConfig.GetJavaScriptTableNameForSystem(), imitativeTypingConfig.GetJavaScriptTableNameForSystemFunctions()))
+	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("it.%s = {}", imitativeTypingConfig.GetJavaScriptTableNameForDirectory()))
+	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("it.%s = {}", imitativeTypingConfig.GetJavaScriptTableNameForFile()))
+	javaScriptContext.duktapeContext.PevalString(fmt.Sprintf("it.%s = {}", imitativeTypingConfig.GetJavaScriptTableNameForLine()))
 	javaScriptContext.duktapeContext.PevalString(`var console = {log:print,warn:print,error:print,info:print}`)
 	javaScriptContext.PushGoFunction("Duktape.modSearch", func(c *duktape.Context) int {
 		name := c.RequireString(0)
@@ -31,4 +33,22 @@ func (javaScriptContext *JavaScriptContext) PushGoFunction(name string, function
 	javaScriptContext.duktapeContext.PushGoFunction(function)
 	javaScriptContext.duktapeContext.Call(1)
 	javaScriptContext.duktapeContext.Pop()
+}
+
+func RegisterFunctions() {
+	RegisterDirectoryInsert()
+	RegisterDirectoryDelete()
+	RegisterDirectorySelectFileCount()
+	RegisterDirectorySelectFileName()
+	RegisterDirectoryUpdate()
+	RegisterFileInsert()
+	RegisterFileDelete()
+	RegisterFileSelectLineCount()
+	RegisterFileUpdate()
+	RegisterFileOrigin()
+	RegisterLineInsert()
+	RegisterLineDelete()
+	RegisterLineSelect()
+	RegisterLineUpdate()
+	RegisterLineOrigin()
 }

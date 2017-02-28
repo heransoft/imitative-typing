@@ -1,8 +1,10 @@
 package imitative_typing
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/golang/protobuf/proto"
+	"strconv"
 	"strings"
 )
 
@@ -13,21 +15,35 @@ func GetID2JavaScriptLines(filename string) (id2JavaScriptLines map[string]*Java
 	annotationSymbol := GetAnnotationSymbol(filename)
 	annotationSymbolLength := len(annotationSymbol)
 	javaScriptStartSymbol := annotationSymbol + imitativeTypingConfig.GetJavaScriptStartSymbol()
-	javaScriptStartSymbol4ID := javaScriptStartSymbol + "id:"
-	javaScriptStartSymbol4IDLength := len(javaScriptStartSymbol4ID)
+	javaScriptStartSymbolLength := len(javaScriptStartSymbol)
 	javaScriptEndSymbol := annotationSymbol + imitativeTypingConfig.GetJavaScriptEndSymbol()
 	for i := 0; i < allLineLength; i++ {
 		line := strings.TrimSpace(allLine[i])
 		if strings.Index(line, javaScriptStartSymbol) == 0 {
 			javaScriptLines := &JavaScriptLines{
 				BaseLineNumber: proto.Uint32(uint32(i)),
+				Order:          proto.Int32(int32(i)),
 			}
-			if strings.Index(line, javaScriptStartSymbol4ID) == 0 {
-				id := line[javaScriptStartSymbol4IDLength:]
-				if _, exist := id2JavaScriptLines[id]; exist {
-					panic(fmt.Sprintf("id(%s) duplication", id))
+			if javaScriptStartSymbolLength != len(line) {
+				//unmarshal json to id and order
+				jsonStr := line[javaScriptStartSymbolLength:]
+				data := make(map[string]interface{}, 0)
+				err := json.Unmarshal([]byte(jsonStr), data)
+				if err != nil {
+					data = make(map[string]interface{}, 0)
 				}
-				id2JavaScriptLines[id] = javaScriptLines
+				if id, exist := data["i"]; exist {
+					id2JavaScriptLines[fmt.Sprintf("%v", id)] = javaScriptLines
+				} else {
+					id2JavaScriptLines[fmt.Sprint(i)] = javaScriptLines
+				}
+
+				if order, exist := data["o"]; exist {
+					value, err := strconv.ParseInt(fmt.Sprintf("%v", order), 10, 0)
+					if err == nil {
+						javaScriptLines.Order = proto.Int32(int32(value))
+					}
+				}
 			} else {
 				id2JavaScriptLines[fmt.Sprint(i)] = javaScriptLines
 			}

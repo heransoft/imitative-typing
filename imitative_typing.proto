@@ -10,4 +10,5 @@ message File {
 message JavaScriptLines {
     repeated string Lines = 1;
     optional uint32 BaseLineNumber = 2;
+    optional int32 Order= 3;
 }

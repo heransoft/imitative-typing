@@ -1,11 +1,14 @@
 package imitative_typing
 
 import (
+	"fmt"
 	"gopkg.in/olebedev/go-duktape.v2"
 )
 
 func RegisterDirectoryUpdate() {
-	javaScriptContext.PushGoFunction(imitativeTypingConfig.GetJavaScriptTableNameForDirectory()+"."+imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryUpdate(),
+	javaScriptContext.PushGoFunction(fmt.Sprintf("it.%s.%s",
+		imitativeTypingConfig.GetJavaScriptTableNameForDirectory(),
+		imitativeTypingConfig.GetJavaScriptFunctionNameForDirectoryUpdate()),
 		func(duktapeContext *duktape.Context) int {
 			DirectoryInsert(duktapeContext)
 			DirectoryUpdate()

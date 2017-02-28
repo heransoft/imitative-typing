@@ -52,7 +52,7 @@ func SaveFile(from, to string) {
 			lineNumbers = append(lineNumbers, lineNumber)
 		}
 	}
-	sort.Sort(LineNumbers4Sort(lineNumbers))
+	sort.Sort(LineNumbersForSort(lineNumbers))
 	for _, lineNumber := range lineNumbers {
 		insert, insertExist := fileContext.Insert[lineNumber]
 		if insertExist {
@@ -66,10 +66,10 @@ func SaveFile(from, to string) {
 	}
 }
 
-type LineNumbers4Sort []uint32 //玩家手牌
+type LineNumbersForSort []uint32
 
-func (m LineNumbers4Sort) Len() int { return len(m) }
-func (m LineNumbers4Sort) Less(i, j int) bool {
+func (m LineNumbersForSort) Len() int { return len(m) }
+func (m LineNumbersForSort) Less(i, j int) bool {
 	return m[i] < m[j]
 }
-func (m LineNumbers4Sort) Swap(i, j int) { m[i], m[j] = m[j], m[i] }
+func (m LineNumbersForSort) Swap(i, j int) { m[i], m[j] = m[j], m[i] }

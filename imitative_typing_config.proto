@@ -18,20 +18,21 @@ message ImitativeTypingConfig {
     optional string JavaScriptTableNameForDirectory = 8;
     optional string JavaScriptFunctionNameForDirectoryInsert = 9;
     optional string JavaScriptFunctionNameForDirectoryDelete = 10;
-    optional string JavaScriptFunctionNameForDirectorySelect = 11;
-    optional string JavaScriptFunctionNameForDirectoryUpdate = 12;
-    optional string JavaScriptTableNameForFile = 13;
-    optional string JavaScriptFunctionNameForFileInsert = 14;
-    optional string JavaScriptFunctionNameForFileDelete = 15;
-    optional string JavaScriptFunctionNameForFileSelect = 16;
-    optional string JavaScriptFunctionNameForFileUpdate = 17;
-    optional string JavaScriptFunctionNameForFileOrigin = 18;
-    optional string JavaScriptTableNameForLine = 19;
-    optional string JavaScriptFunctionNameForLineInsert = 20;
-    optional string JavaScriptFunctionNameForLineDelete = 21;
-    optional string JavaScriptFunctionNameForLineSelect = 22;
-    optional string JavaScriptFunctionNameForLineUpdate = 23;
-    optional string JavaScriptFunctionNameForLineOrigin = 24;
-    optional string JavaScriptTableNameForGlobal = 25;
-
+    optional string JavaScriptFunctionNameForDirectorySelectFileCount = 11;
+    optional string JavaScriptFunctionNameForDirectorySelectFileName = 12;
+    optional string JavaScriptFunctionNameForDirectoryUpdate = 13;
+    optional string JavaScriptTableNameForFile = 14;
+    optional string JavaScriptFunctionNameForFileInsert = 15;
+    optional string JavaScriptFunctionNameForFileDelete = 16;
+    optional string JavaScriptFunctionNameForFileSelectLineCount = 17;
+    optional string JavaScriptFunctionNameForFileUpdate = 18;
+    optional string JavaScriptFunctionNameForFileOrigin = 19;
+    optional string JavaScriptTableNameForLine = 20;
+    optional string JavaScriptFunctionNameForLineInsert = 21;
+    optional string JavaScriptFunctionNameForLineDelete = 22;
+    optional string JavaScriptFunctionNameForLineSelect = 23;
+    optional string JavaScriptFunctionNameForLineUpdate = 24;
+    optional string JavaScriptFunctionNameForLineOrigin = 25;
+    optional string JavaScriptTableNameForSystem = 26;
+    optional string JavaScriptTableNameForSystemFunctions = 27;
 }

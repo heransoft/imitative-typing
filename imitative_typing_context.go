@@ -1,12 +1,13 @@
 package imitative_typing
 
 type FileContext struct {
-	File       *File
-	Insert     map[uint32][]string
-	Delete     map[uint32]bool
-	Update     map[uint32]string
-	Origin     map[uint32]string
-	JavaScript map[string]string
+	File            *File
+	Insert          map[uint32][]string
+	Delete          map[uint32]bool
+	Update          map[uint32]string
+	Origin          map[uint32]string
+	JavaScript      map[string]string
+	JavaScriptOrder map[string]int32
 }
 
 type DirectoryContext struct {

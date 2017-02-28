@@ -46,32 +46,34 @@ func (m *FileExtension2AnnotationSymbol) GetAnnotationSymbol() string {
 }
 
 type ImitativeTypingConfig struct {
-	FileExtension2AnnotationSymbol           []*FileExtension2AnnotationSymbol `protobuf:"bytes,1,rep" json:"FileExtension2AnnotationSymbol,omitempty"`
-	JavaScriptStartSymbol                    *string                           `protobuf:"bytes,2,opt" json:"JavaScriptStartSymbol,omitempty"`
-	JavaScriptEndSymbol                      *string                           `protobuf:"bytes,3,opt" json:"JavaScriptEndSymbol,omitempty"`
-	PreprocessorMacroForCurrentLine          *string                           `protobuf:"bytes,4,opt" json:"PreprocessorMacroForCurrentLine,omitempty"`
-	PreprocessorMacroForCurrentStartLine     *string                           `protobuf:"bytes,5,opt" json:"PreprocessorMacroForCurrentStartLine,omitempty"`
-	PreprocessorMacroForCurrentEndLine       *string                           `protobuf:"bytes,6,opt" json:"PreprocessorMacroForCurrentEndLine,omitempty"`
-	PreprocessorMacroForCurrentFileEndLine   *string                           `protobuf:"bytes,7,opt" json:"PreprocessorMacroForCurrentFileEndLine,omitempty"`
-	JavaScriptTableNameForDirectory          *string                           `protobuf:"bytes,8,opt" json:"JavaScriptTableNameForDirectory,omitempty"`
-	JavaScriptFunctionNameForDirectoryInsert *string                           `protobuf:"bytes,9,opt" json:"JavaScriptFunctionNameForDirectoryInsert,omitempty"`
-	JavaScriptFunctionNameForDirectoryDelete *string                           `protobuf:"bytes,10,opt" json:"JavaScriptFunctionNameForDirectoryDelete,omitempty"`
-	JavaScriptFunctionNameForDirectorySelect *string                           `protobuf:"bytes,11,opt" json:"JavaScriptFunctionNameForDirectorySelect,omitempty"`
-	JavaScriptFunctionNameForDirectoryUpdate *string                           `protobuf:"bytes,12,opt" json:"JavaScriptFunctionNameForDirectoryUpdate,omitempty"`
-	JavaScriptTableNameForFile               *string                           `protobuf:"bytes,13,opt" json:"JavaScriptTableNameForFile,omitempty"`
-	JavaScriptFunctionNameForFileInsert      *string                           `protobuf:"bytes,14,opt" json:"JavaScriptFunctionNameForFileInsert,omitempty"`
-	JavaScriptFunctionNameForFileDelete      *string                           `protobuf:"bytes,15,opt" json:"JavaScriptFunctionNameForFileDelete,omitempty"`
-	JavaScriptFunctionNameForFileSelect      *string                           `protobuf:"bytes,16,opt" json:"JavaScriptFunctionNameForFileSelect,omitempty"`
-	JavaScriptFunctionNameForFileUpdate      *string                           `protobuf:"bytes,17,opt" json:"JavaScriptFunctionNameForFileUpdate,omitempty"`
-	JavaScriptFunctionNameForFileOrigin      *string                           `protobuf:"bytes,18,opt" json:"JavaScriptFunctionNameForFileOrigin,omitempty"`
-	JavaScriptTableNameForLine               *string                           `protobuf:"bytes,19,opt" json:"JavaScriptTableNameForLine,omitempty"`
-	JavaScriptFunctionNameForLineInsert      *string                           `protobuf:"bytes,20,opt" json:"JavaScriptFunctionNameForLineInsert,omitempty"`
-	JavaScriptFunctionNameForLineDelete      *string                           `protobuf:"bytes,21,opt" json:"JavaScriptFunctionNameForLineDelete,omitempty"`
-	JavaScriptFunctionNameForLineSelect      *string                           `protobuf:"bytes,22,opt" json:"JavaScriptFunctionNameForLineSelect,omitempty"`
-	JavaScriptFunctionNameForLineUpdate      *string                           `protobuf:"bytes,23,opt" json:"JavaScriptFunctionNameForLineUpdate,omitempty"`
-	JavaScriptFunctionNameForLineOrigin      *string                           `protobuf:"bytes,24,opt" json:"JavaScriptFunctionNameForLineOrigin,omitempty"`
-	JavaScriptTableNameForGlobal             *string                           `protobuf:"bytes,25,opt" json:"JavaScriptTableNameForGlobal,omitempty"`
-	XXX_unrecognized                         []byte                            `json:"-"`
+	FileExtension2AnnotationSymbol                    []*FileExtension2AnnotationSymbol `protobuf:"bytes,1,rep" json:"FileExtension2AnnotationSymbol,omitempty"`
+	JavaScriptStartSymbol                             *string                           `protobuf:"bytes,2,opt" json:"JavaScriptStartSymbol,omitempty"`
+	JavaScriptEndSymbol                               *string                           `protobuf:"bytes,3,opt" json:"JavaScriptEndSymbol,omitempty"`
+	PreprocessorMacroForCurrentLine                   *string                           `protobuf:"bytes,4,opt" json:"PreprocessorMacroForCurrentLine,omitempty"`
+	PreprocessorMacroForCurrentStartLine              *string                           `protobuf:"bytes,5,opt" json:"PreprocessorMacroForCurrentStartLine,omitempty"`
+	PreprocessorMacroForCurrentEndLine                *string                           `protobuf:"bytes,6,opt" json:"PreprocessorMacroForCurrentEndLine,omitempty"`
+	PreprocessorMacroForCurrentFileEndLine            *string                           `protobuf:"bytes,7,opt" json:"PreprocessorMacroForCurrentFileEndLine,omitempty"`
+	JavaScriptTableNameForDirectory                   *string                           `protobuf:"bytes,8,opt" json:"JavaScriptTableNameForDirectory,omitempty"`
+	JavaScriptFunctionNameForDirectoryInsert          *string                           `protobuf:"bytes,9,opt" json:"JavaScriptFunctionNameForDirectoryInsert,omitempty"`
+	JavaScriptFunctionNameForDirectoryDelete          *string                           `protobuf:"bytes,10,opt" json:"JavaScriptFunctionNameForDirectoryDelete,omitempty"`
+	JavaScriptFunctionNameForDirectorySelectFileCount *string                           `protobuf:"bytes,11,opt" json:"JavaScriptFunctionNameForDirectorySelectFileCount,omitempty"`
+	JavaScriptFunctionNameForDirectorySelectFileName  *string                           `protobuf:"bytes,12,opt" json:"JavaScriptFunctionNameForDirectorySelectFileName,omitempty"`
+	JavaScriptFunctionNameForDirectoryUpdate          *string                           `protobuf:"bytes,13,opt" json:"JavaScriptFunctionNameForDirectoryUpdate,omitempty"`
+	JavaScriptTableNameForFile                        *string                           `protobuf:"bytes,14,opt" json:"JavaScriptTableNameForFile,omitempty"`
+	JavaScriptFunctionNameForFileInsert               *string                           `protobuf:"bytes,15,opt" json:"JavaScriptFunctionNameForFileInsert,omitempty"`
+	JavaScriptFunctionNameForFileDelete               *string                           `protobuf:"bytes,16,opt" json:"JavaScriptFunctionNameForFileDelete,omitempty"`
+	JavaScriptFunctionNameForFileSelectLineCount      *string                           `protobuf:"bytes,17,opt" json:"JavaScriptFunctionNameForFileSelectLineCount,omitempty"`
+	JavaScriptFunctionNameForFileUpdate               *string                           `protobuf:"bytes,18,opt" json:"JavaScriptFunctionNameForFileUpdate,omitempty"`
+	JavaScriptFunctionNameForFileOrigin               *string                           `protobuf:"bytes,19,opt" json:"JavaScriptFunctionNameForFileOrigin,omitempty"`
+	JavaScriptTableNameForLine                        *string                           `protobuf:"bytes,20,opt" json:"JavaScriptTableNameForLine,omitempty"`
+	JavaScriptFunctionNameForLineInsert               *string                           `protobuf:"bytes,21,opt" json:"JavaScriptFunctionNameForLineInsert,omitempty"`
+	JavaScriptFunctionNameForLineDelete               *string                           `protobuf:"bytes,22,opt" json:"JavaScriptFunctionNameForLineDelete,omitempty"`
+	JavaScriptFunctionNameForLineSelect               *string                           `protobuf:"bytes,23,opt" json:"JavaScriptFunctionNameForLineSelect,omitempty"`
+	JavaScriptFunctionNameForLineUpdate               *string                           `protobuf:"bytes,24,opt" json:"JavaScriptFunctionNameForLineUpdate,omitempty"`
+	JavaScriptFunctionNameForLineOrigin               *string                           `protobuf:"bytes,25,opt" json:"JavaScriptFunctionNameForLineOrigin,omitempty"`
+	JavaScriptTableNameForSystem                      *string                           `protobuf:"bytes,26,opt" json:"JavaScriptTableNameForSystem,omitempty"`
+	JavaScriptTableNameForSystemFunctions             *string                           `protobuf:"bytes,27,opt" json:"JavaScriptTableNameForSystemFunctions,omitempty"`
+	XXX_unrecognized                                  []byte                            `json:"-"`
 }
 
 func (m *ImitativeTypingConfig) Reset()         { *m = ImitativeTypingConfig{} }
@@ -148,9 +150,16 @@ func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForDirectoryDelete() st
 	return ""
 }
 
-func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForDirectorySelect() string {
-	if m != nil && m.JavaScriptFunctionNameForDirectorySelect != nil {
-		return *m.JavaScriptFunctionNameForDirectorySelect
+func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForDirectorySelectFileCount() string {
+	if m != nil && m.JavaScriptFunctionNameForDirectorySelectFileCount != nil {
+		return *m.JavaScriptFunctionNameForDirectorySelectFileCount
+	}
+	return ""
+}
+
+func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForDirectorySelectFileName() string {
+	if m != nil && m.JavaScriptFunctionNameForDirectorySelectFileName != nil {
+		return *m.JavaScriptFunctionNameForDirectorySelectFileName
 	}
 	return ""
 }
@@ -183,9 +192,9 @@ func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForFileDelete() string 
 	return ""
 }
 
-func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForFileSelect() string {
-	if m != nil && m.JavaScriptFunctionNameForFileSelect != nil {
-		return *m.JavaScriptFunctionNameForFileSelect
+func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForFileSelectLineCount() string {
+	if m != nil && m.JavaScriptFunctionNameForFileSelectLineCount != nil {
+		return *m.JavaScriptFunctionNameForFileSelectLineCount
 	}
 	return ""
 }
@@ -246,9 +255,16 @@ func (m *ImitativeTypingConfig) GetJavaScriptFunctionNameForLineOrigin() string 
 	return ""
 }
 
-func (m *ImitativeTypingConfig) GetJavaScriptTableNameForGlobal() string {
-	if m != nil && m.JavaScriptTableNameForGlobal != nil {
-		return *m.JavaScriptTableNameForGlobal
+func (m *ImitativeTypingConfig) GetJavaScriptTableNameForSystem() string {
+	if m != nil && m.JavaScriptTableNameForSystem != nil {
+		return *m.JavaScriptTableNameForSystem
+	}
+	return ""
+}
+
+func (m *ImitativeTypingConfig) GetJavaScriptTableNameForSystemFunctions() string {
+	if m != nil && m.JavaScriptTableNameForSystemFunctions != nil {
+		return *m.JavaScriptTableNameForSystemFunctions
 	}
 	return ""
 }
